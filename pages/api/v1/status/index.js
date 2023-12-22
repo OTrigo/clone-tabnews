@@ -28,6 +28,7 @@ async function status(request, response) {
       opened_connections: openedConnections,
     },
   });
+
 }
 
 export default status;
