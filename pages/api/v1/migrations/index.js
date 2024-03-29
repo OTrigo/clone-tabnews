@@ -18,7 +18,7 @@ export default async function migrations(request, response) {
   if (request.method === "POST") {
     const migratedMigrations = await migrationRunner({
       ...defaultMigrationOptions,
-      dryRun: true,
+      dryRun: false,
     });
 
     if (migratedMigrations.length > 0) {
