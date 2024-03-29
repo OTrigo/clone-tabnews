@@ -6,7 +6,7 @@ dotenv.config({
 });
 
 const createJestConfig = nextJest({
-  dir: "./",
+  dir: ".",
 });
 
 const jestConfig = createJestConfig({
