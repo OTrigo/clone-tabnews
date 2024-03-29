@@ -1,5 +1,5 @@
 import migrationRunner from "node-pg-migrate";
-import {join} from "node:path"
+import { join } from "node:path";
 
 export default async function migrations(request, response) {
   const migrations = await migrationRunner({
@@ -8,8 +8,7 @@ export default async function migrations(request, response) {
     dir: join("infra", "migrations"),
     direction: "up",
     verbose: true,
-    migrationsTable: "pgmigrations"
-
+    migrationsTable: "pgmigrations",
   });
-  response.status(200).json([]);
+  response.status(200).json(migrations);
 }
