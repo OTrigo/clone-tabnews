@@ -1,4 +1,5 @@
 import retry from "async-retry";
+import database from "infra/database";
 
 const waitForAllServices = async () => {
   await waitForWebServer();
@@ -21,4 +22,8 @@ const waitForAllServices = async () => {
   }
 };
 
-export { waitForAllServices };
+async function clearDatabase() {
+  await database.query("drop schema public cascade; create schema public;");
+}
+
+export { waitForAllServices, clearDatabase };
